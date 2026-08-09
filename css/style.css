@@ -570,6 +570,10 @@ footer svg {
     gap: 16px;
   }
 
+  .contact-grid {
+  grid-template-columns: 1fr;
+  }
+
   .nav-list {
     gap: 20px;
     flex-wrap: wrap;
@@ -599,7 +603,5 @@ footer svg {
     transition: none !important;
   }
 
-  .contact-grid {
-  grid-template-columns: 1fr;
-}
+  
 }
