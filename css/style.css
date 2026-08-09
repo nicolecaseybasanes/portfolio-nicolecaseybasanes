@@ -598,4 +598,8 @@ footer svg {
     animation: none !important;
     transition: none !important;
   }
+
+  .contact-grid {
+  grid-template-columns: 1fr;
+}
 }
