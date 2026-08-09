@@ -292,7 +292,7 @@ section {
 /* =====================================================
    JOURNEY SECTION — photo left, timeline right
 ===================================================== */
-.journey {
+.journey-columns {
   display: flex;
   align-items: flex-start;
   gap: 60px;
@@ -581,7 +581,7 @@ footer svg {
   }
 
   .hero,
-  .journey {
+  .journey-columns {
     flex-direction: column;
   }
 
