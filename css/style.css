@@ -365,7 +365,7 @@ body.loading {
 /* Row holding the two hero buttons */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 16px;
 }
 
@@ -684,6 +684,10 @@ footer svg {
     order: -1;
     max-width: 260px;
   }
+  .hero-actions .btn {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+}
 }
 
 /* Respect users who prefer reduced motion */
