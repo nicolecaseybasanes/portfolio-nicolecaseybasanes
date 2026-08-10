@@ -1,4 +1,53 @@
 // =====================================================
+// SPLASH SCREEN
+// Shows logo + moon + loader, then animates the logo/moon
+// into their real header positions before removing itself
+// =====================================================
+document.body.classList.add("loading");
+
+const splashScreen = document.getElementById("splash-screen");
+const splashLogo = document.querySelector(".splash-logo");
+const splashMoon = document.querySelector(".splash-moon");
+if (localStorage.getItem("theme") === "dark") {
+  splashMoon.textContent = "☀️";
+}
+
+window.addEventListener("load", () => {
+  // Small delay so the loader is visible for at least a moment
+  setTimeout(() => {
+    // Find where the real header logo and toggle button sit
+    const realLogo = document.querySelector(".logo");
+    const realMoon = document.querySelector(".theme-toggle");
+
+    const splashLogoRect = splashLogo.getBoundingClientRect();
+    const splashMoonRect = splashMoon.getBoundingClientRect();
+    const realLogoRect = realLogo.getBoundingClientRect();
+    const realMoonRect = realMoon.getBoundingClientRect();
+
+    // Calculate how far the splash logo/moon need to move
+    // to land exactly on top of the real header versions
+    const logoX = realLogoRect.left - splashLogoRect.left;
+    const logoY = realLogoRect.top - splashLogoRect.top;
+    const moonX = realMoonRect.left - splashMoonRect.left;
+    const moonY = realMoonRect.top - splashMoonRect.top;
+
+    splashLogo.style.transform = `translate(${logoX}px, ${logoY}px) scale(0.6)`;
+    splashMoon.style.transform = `translate(${moonX}px, ${moonY}px) scale(0.6)`;
+    splashMoon.classList.add("splash-moon-toggle");
+
+    // Fade the whole splash overlay out
+    splashScreen.classList.add("splash-exit");
+
+    // Once the fade finishes, remove splash and unlock scrolling
+    splashScreen.addEventListener("transitionend", () => {
+      splashScreen.remove();
+      document.body.classList.remove("loading");
+    }, { once: true });
+
+  }, 3000); // how long the loader stays visible before exiting
+});
+
+// =====================================================
 // DARK MODE TOGGLE
 // Switches the [data-theme] attribute on <html> between
 // "light" and "dark", and remembers the choice for next visit
@@ -6,12 +55,14 @@
 const root = document.documentElement;
 const themeToggle = document.getElementById("theme-toggle");
 const toggleIcon = themeToggle.querySelector(".toggle-icon");
+const toggleLabel = themeToggle.querySelector(".toggle-label");
 
 // Load saved theme (if any) when the page opens
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   root.setAttribute("data-theme", "dark");
   toggleIcon.textContent = "☀️";
+  toggleLabel.textContent = "LIGHT MODE";
 }
 
 // Toggle theme on button click
@@ -21,10 +72,12 @@ themeToggle.addEventListener("click", () => {
   if (isDark) {
     root.removeAttribute("data-theme");
     toggleIcon.textContent = "🌙";
+    toggleLabel.textContent = "DARK MODE";
     localStorage.setItem("theme", "light");
   } else {
     root.setAttribute("data-theme", "dark");
     toggleIcon.textContent = "☀️";
+    toggleLabel.textContent = "LIGHT MODE";
     localStorage.setItem("theme", "dark");
   }
 });
