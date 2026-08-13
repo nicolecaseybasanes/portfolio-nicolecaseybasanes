@@ -685,20 +685,19 @@ footer svg {
    RESPONSIVE — stack layouts on smaller screens
 ===================================================== */
 @media (max-width: 900px) {
-  main {
-  padding-bottom: 90px;
-}
-.nav-text {
-  display: none;
-}
+    main {
+      padding-bottom: 90px;
+    }
+  .nav-text {
+    display: none;
+  }
 
-.nav-icon {
-  display: inline-block;
-  font-size: 1.1rem;
-}
- 
+  .nav-icon {
+    display: inline-block;
+    font-size: 1.1rem;
+  }
   .contact-grid {
-  grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .nav-list {
@@ -769,6 +768,7 @@ footer svg {
     font-size: 0.75rem;
   }
 }
+
 
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
