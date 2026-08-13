@@ -140,3 +140,42 @@ document.querySelectorAll('.nav-link').forEach(link => {
     }
   });
 });
+
+// =====================================================
+// SCROLL REVEAL ANIMATION
+// Fades elements in as they enter the viewport
+// =====================================================
+const revealEls = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    } else {
+      entry.target.classList.remove("visible"); // reset so it can replay
+    }
+  });
+}, { threshold: 0.15 });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+// =====================================================
+// ACTIVE NAV LINK ON SCROLL
+// Highlights the nav link matching the section in view
+// =====================================================
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute("id");
+
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(section => navObserver.observe(section));

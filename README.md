@@ -46,7 +46,7 @@ git clone https://github.com/nicolecaseybasanes/portfolio-nicolecaseybasanes.git
 No additional installation or dependencies are required.
 
 ## Live Demo
-[View My Portfolio](https://nicolecaseybasanes.github.io/portfolio-nicolecaseybasanes/)
+[Click here to View My Portfolio](https://nicolecaseybasanes.github.io/portfolio-nicolecaseybasanes/)
 
 
 
