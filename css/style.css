@@ -748,6 +748,27 @@ footer svg {
   font-size: 0.85rem;
 }
 }
+/* Extra shrink for the bottom nav pill on small phones */
+@media (max-width: 480px) {
+  .site-nav {
+    bottom: 12px;
+    padding: 6px 14px;
+    gap: 10px;
+  }
+
+  .nav-list {
+    gap: 10px;
+  }
+
+  .nav-icon {
+    font-size: 0.9rem;
+  }
+
+  .nav-contact {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+}
 
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
