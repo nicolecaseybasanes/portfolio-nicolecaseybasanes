@@ -89,7 +89,8 @@ themeToggle.addEventListener("click", () => {
 const typingTextEl = document.getElementById("typing-text");
 const linesToType = [
   "3rd year college, BSIT student",
-  "Aspiring IT Professional"
+   "Aspiring System Analyst",
+  "Aspiring Software Engineer"
 ];
 
 let lineIndex = 0;
