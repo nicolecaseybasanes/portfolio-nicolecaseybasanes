@@ -1,16 +1,11 @@
 // =====================================================
 // SPLASH SCREEN
-// Shows logo + moon + loader, then animates the logo/moon
-// into their real header positions before removing itself
 // =====================================================
 document.body.classList.add("loading");
 
 const splashScreen = document.getElementById("splash-screen");
 const splashLogo = document.querySelector(".splash-logo");
 const splashMoon = document.querySelector(".splash-moon");
-if (localStorage.getItem("theme") === "dark") {
-  splashMoon.textContent = "☀️";
-}
 
 window.addEventListener("load", () => {
   // Small delay so the loader is visible for at least a moment
@@ -90,7 +85,7 @@ const typingTextEl = document.getElementById("typing-text");
 const linesToType = [
   "3rd year college, BSIT student",
    "Aspiring System Analyst",
-  "Aspiring Software Engineer"
+   "Aspiring IT Professional"
 ];
 
 let lineIndex = 0;
